@@ -8,11 +8,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/bootstrap.css" />
   </head>
   <body>
     <div class="box">
       <div class="topnav" id="myTopnav">
         <a href="#home" class="active">Home</a>
+        <a href="./potofolio.html">Portofolio</a>
         <a href="./contact.html">Contact</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
@@ -20,7 +22,15 @@
       </div>
       <h1>My Personal Information</h1>
       <div class="image">
-        <img src="assets/photo.jpg" alt="my Picture" class="avatar" />
+        <a href="#">
+          <img
+            src="assets/photo.jpg"
+            alt="my Picture"
+            class="avatar"
+            data-toggle="modal"
+            data-target="#myModal"
+          />
+        </a>
         <h5>Yudha Kurniawan</h5>
         <h6>Web Programmer</h6>
       </div>
@@ -48,8 +58,44 @@
       </div>
       <div class="sosial"></div>
     </div>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Dont See too long...!</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body" style="text-align: center;">
+            <img
+              src="assets/photo.jpg"
+              alt="my Picture"
+              class="avatar"
+              style="width:300px; height: 300px;"
+            />
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="./assets/jquery-3.4.1.js"></script>
+  <script src="./assets/js/bootstrap.js"></script>
   <script>
+    $("#myModal").on("shown.bs.modal", function() {
+      $("#myInput").trigger("focus");
+    });
     function myFunction() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
